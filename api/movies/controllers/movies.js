@@ -11,10 +11,10 @@ module.exports = {
     let entity;
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
-      entity = await strapi.services.movie.create(data, { files });
+      entity = await strapi.services.movies.create(data, { files });
     } else {
-      entity = await strapi.services.movie.create(ctx.request.body);
+      entity = await strapi.services.movies.create(ctx.request.body);
     }
-    return sanitizeEntity(entity, { model: strapi.models.movie });
+    return sanitizeEntity(entity, { model: strapi.models.movies });
   },
 };
